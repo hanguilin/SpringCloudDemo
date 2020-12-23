@@ -7,7 +7,7 @@
     <artifactId>api-provider</artifactId>
 
     <parent>
-        <artifactId>nacos</artifactId>
+        <artifactId>spring-cloud-demo</artifactId>
         <groupId>cn.javayuli</groupId>
         <version>1.0.0</version>
     </parent>

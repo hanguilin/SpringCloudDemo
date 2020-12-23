@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.javayuli</groupId>
-    <artifactId>nacos</artifactId>
+    <artifactId>spring-cloud-demo</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
         <module>api-provider</module>
-        <module>api-gatewey</module>
+        <module>api-gateway</module>
     </modules>
 
     <parent>
