@@ -11,7 +11,7 @@
  Target Server Version : 50713
  File Encoding         : 65001
 
- Date: 23/12/2020 11:25:59
+ Date: 23/12/2020 11:47:17
 */
 
 SET NAMES utf8mb4;
@@ -40,14 +40,14 @@ CREATE TABLE `config_info`  (
   `c_schema` text CHARACTER SET utf8 COLLATE utf8_bin NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uk_configinfo_datagrouptenant`(`data_id`, `group_id`, `tenant_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = 'config_info' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = 'config_info' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of config_info
 -- ----------------------------
 INSERT INTO `config_info` VALUES (2, 'application-dev.yml', 'DEFAULT_GROUP', 'useLocalCache:\r\n  true', 'ec5806c76f1318a6db2e59858e88ee4a', '2020-12-21 06:56:57', '2020-12-21 06:57:08', NULL, '0:0:0:0:0:0:0:1', '', '', '', '', '', 'yaml', '');
 INSERT INTO `config_info` VALUES (4, 'api-provider-dev.yml', 'DEFAULT_GROUP', 'server:\r\n  port: 8000\r\nspring:\r\n  cloud:\r\n    sentinel:\r\n      transport:\r\n        port: 8719\r\n        dashboard: localhost:8080', 'd7d3d510c495df7e1fd11803ce76af36', '2020-12-21 09:54:19', '2020-12-23 02:01:39', NULL, '0:0:0:0:0:0:0:1', '', '', '', '', '', 'yaml', '');
-INSERT INTO `config_info` VALUES (9, 'api-gatewey-dev.yml', 'DEFAULT_GROUP', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: lb://api-provider\r\n        predicates:\r\n        - Path=/provider/**\r\n        filters:\r\n        - RewritePath=/provider/(?<segment>.*), /$\\{segment}', '1698ed65e03daf6d5f3dfaa5d60c009b', '2020-12-23 02:01:58', '2020-12-23 02:41:59', NULL, '0:0:0:0:0:0:0:1', '', '', '', '', '', 'yaml', '');
+INSERT INTO `config_info` VALUES (21, 'api-gateway-dev.yml', 'DEFAULT_GROUP', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: lb://api-provider\r\n        predicates:\r\n        - Path=/provider/**\r\n        filters:\r\n        - RewritePath=/provider/(?<segment>.*), /$\\{segment}', '1698ed65e03daf6d5f3dfaa5d60c009b', '2020-12-23 03:39:19', '2020-12-23 03:39:19', NULL, '0:0:0:0:0:0:0:1', '', '', NULL, NULL, NULL, 'yaml', NULL);
 
 -- ----------------------------
 -- Table structure for config_info_aggr
@@ -186,7 +186,7 @@ CREATE TABLE `his_config_info`  (
   INDEX `idx_gmt_create`(`gmt_create`) USING BTREE,
   INDEX `idx_gmt_modified`(`gmt_modified`) USING BTREE,
   INDEX `idx_did`(`data_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '多租户改造' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '多租户改造' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of his_config_info
@@ -212,6 +212,8 @@ INSERT INTO `his_config_info` VALUES (9, 18, 'api-gatewey-dev.yml', 'DEFAULT_GRO
 INSERT INTO `his_config_info` VALUES (9, 19, 'api-gatewey-dev.yml', 'DEFAULT_GROUP', '', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: http://localhost:8000\r\n        predicates:\r\n        - Path=/provider/**', '05b7e4a2ba6c744f2ca9f6ec42aece23', '2020-12-23 10:37:55', '2020-12-23 02:37:56', NULL, '0:0:0:0:0:0:0:1', 'U', '');
 INSERT INTO `his_config_info` VALUES (9, 20, 'api-gatewey-dev.yml', 'DEFAULT_GROUP', '', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: http://localhost:8000\r\n        predicates:\r\n        - Path=/hello/**', '7c50e84ecabf204b5174608f00f7efac', '2020-12-23 10:39:12', '2020-12-23 02:39:12', NULL, '0:0:0:0:0:0:0:1', 'U', '');
 INSERT INTO `his_config_info` VALUES (9, 21, 'api-gatewey-dev.yml', 'DEFAULT_GROUP', '', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: lb://api-provider\r\n        predicates:\r\n        - Path=/hello/**', 'd7d0a9287960dd6615ed54fe90879275', '2020-12-23 10:41:58', '2020-12-23 02:41:59', NULL, '0:0:0:0:0:0:0:1', 'U', '');
+INSERT INTO `his_config_info` VALUES (0, 22, 'api-gateway-dev.yml', 'DEFAULT_GROUP', '', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: lb://api-provider\r\n        predicates:\r\n        - Path=/provider/**\r\n        filters:\r\n        - RewritePath=/provider/(?<segment>.*), /$\\{segment}', '1698ed65e03daf6d5f3dfaa5d60c009b', '2020-12-23 11:39:19', '2020-12-23 03:39:19', NULL, '0:0:0:0:0:0:0:1', 'I', '');
+INSERT INTO `his_config_info` VALUES (9, 23, 'api-gatewey-dev.yml', 'DEFAULT_GROUP', '', 'server:\r\n  port: 8001\r\nspring:\r\n  cloud:\r\n    gateway:\r\n      routes:\r\n      - id: api-provider\r\n        uri: lb://api-provider\r\n        predicates:\r\n        - Path=/provider/**\r\n        filters:\r\n        - RewritePath=/provider/(?<segment>.*), /$\\{segment}', '1698ed65e03daf6d5f3dfaa5d60c009b', '2020-12-23 11:39:25', '2020-12-23 03:39:25', NULL, '0:0:0:0:0:0:0:1', 'D', '');
 
 -- ----------------------------
 -- Table structure for permissions
