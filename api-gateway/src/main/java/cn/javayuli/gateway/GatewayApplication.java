@@ -1,6 +1,5 @@
 package cn.javayuli.gateway;
 
-import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
