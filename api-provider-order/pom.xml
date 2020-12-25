@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>api-provider</artifactId>
-    <description>接口提供服务</description>
+    <artifactId>api-provider-order</artifactId>
+    <description>订单接口服务</description>
 
     <parent>
         <artifactId>spring-cloud-demo</artifactId>
@@ -47,12 +47,13 @@
             <artifactId>okhttp</artifactId>
             <version>3.10.0</version>
         </dependency>
-        <!-- seata分布式事务 -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <groupId>cn.javayuli</groupId>
+            <artifactId>api-common-mybatis</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
+
     <!--maven的插件-->
     <build>
         <plugins>
@@ -63,6 +64,5 @@
 
         </plugins>
     </build>
-
 
 </project>

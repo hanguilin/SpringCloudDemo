@@ -8,7 +8,7 @@ spring:
         namespace: 56c94dbe-7fbe-49c2-b456-170001455569
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        namespace: ${spring.cloud.nacos.discovery.namespace}
+        namespace: 56c94dbe-7fbe-49c2-b456-170001455569
         file-extension: yml
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

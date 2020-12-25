@@ -5,8 +5,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        namespace: 56c94dbe-7fbe-49c2-b456-170001455569
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: 56c94dbe-7fbe-49c2-b456-170001455569
         file-extension: yml
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

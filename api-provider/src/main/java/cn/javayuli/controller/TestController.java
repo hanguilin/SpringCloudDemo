@@ -17,8 +17,14 @@ public class TestController {
     @Value("${useLocalCache:false}")
     private boolean useLocalCache;
 
+    @Value("${globalConfig:null}")
+    private String globalConfig;
+
     @RequestMapping("/get")
     public boolean get() {
         return useLocalCache;
     }
+
+    @RequestMapping("/global")
+    public String doGlobal(){return globalConfig;}
 }
